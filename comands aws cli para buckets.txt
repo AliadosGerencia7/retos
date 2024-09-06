@@ -1,0 +1,41 @@
+#crear bucket
+aws s3 mb s3://nombre_del_bucket
+
+#borrar bucket
+aws s3 rb s3://nombre_del_bucket
+
+#listar mis buckets
+aws s3 ls
+
+#listar el contenido que tiene un bucket dentro
+aws s3 ls s://nombre_del_bucket
+
+*******************************************************************
+#ingresar un archivo en el bucket desde awscli o desde awsshell
+# 1. listar los archivos que tengo en la máquina aws
+ls
+
+# 2. comando para copiar archivos a un bucket
+aws s3 cp nombre_archivo_con_extension s3://nombre_del_bucket/nombre_archivo_destino
+
+# 3. comando para listar que si hizo la copia
+aws s3 ls s3://nombre_del_bucket
+*******************************************************************
+
+#comando para mover archivo desde la máquina local al bucket
+
+aws s3 mv nombre_archivo_con_extension s3://nombre_del_bucket/nombre_archivo_destino
+
+#comando para mover un archivo desde el bucket a la maquina
+aws s3 mv s3://nombre_del_bucket/nombre_archivo_origen nombre_archivo_destino
+
+#comando para crear un archivo dentro de una carpeta
+aws s3 cp nombre_del_archivo s3://nombre_del_bucket/nombre_carpeta/nombre_archivo_destino
+
+
+
+aws s3api put-public-access-block --bucket <nombre-del-bucket> --public-access-block-configuration BlockPublicAcls=false,IgnorePublicAcls=false,BlockPublicPolicy=false,RestrictPublicBuckets=false
+
+aws s3api put-public-access-block --bucket bucpruebasdecomando1 --public-access-block-configuration BlockPublicAcls=false   
+
+aws s3api put-bucket-acl --bucket bucpruebascomando1 --acl public-read
